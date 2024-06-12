@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(function () {console.log("Service Worker Registered");});
+  }
+</script>
+<html lang="en">
+
+<head>
+  <style type="text/css">
+    * {
+      -ms-touch-action: none;
+      -ms-content-zooming: none;
+      touch-action: none;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .jsdos-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .jsdos-dhry2-test-container {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <link rel="stylesheet" href="/resources/js-dos/js-dos.css">
+</head>
+
+<body class="disable-selection">
+  <div class="jsdos-content"></div>
+  </div>
+  </div>
+  <script src="/resources/js-dos/js-dos.js"></script>
+  <script> emulators.pathPrefix = "/resources/js-dos/";</script>
+  <script src="/resources/player.js" async></script>
+  <script>
+    function removeClasses(classes) {
+      document.querySelectorAll(".flex-grow-0").forEach(el => el.remove());
+      document.querySelectorAll(".notyf").forEach(el => el.remove());
+      document.querySelectorAll(".notyf-announcer").forEach(el => el.remove());
+      document.querySelectorAll(".items-center").forEach(el => el.remove());
+    }
+    function update() {
+      removeClasses();
+      requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  </script>
+</body>
+
+</html>
